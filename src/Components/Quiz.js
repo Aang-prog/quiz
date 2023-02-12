@@ -7,7 +7,20 @@ const Quiz = () => {
     console.log('quizState' , quizState);
     return (
         <div className="quiz">
-            <div className="score">
+            {quizState.showResults && (
+            <div className="results">
+                <div className="Congratulations">Congratulations!</div>
+                <div className="results-info">
+                    <div>You have completed the quiz.</div>
+                    <div>
+                        You got {quizState.correctAnswerCount} out of {quizState.questions.length} correct.
+                    </div>
+                    <div className="next-button" onClick={() => dispatch({type: "RESTART"})} >Restart</div>
+                    </div>
+            </div>)}
+            {!quizState.showResults && (
+                <div>
+       <div className="score">
                 Question {quizState.currentQuestionIndex + 1}/
                 {quizState.questions.length}
             </div>
@@ -16,6 +29,8 @@ const Quiz = () => {
             >
                 Next Question
                 </div>
+                </div>
+            )}
         </div>
     )
 };
