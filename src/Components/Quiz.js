@@ -20,10 +20,13 @@ const Quiz = () => {
             </div>)}
             {!quizState.showResults && (
                 <div>
+                    <div className="title">Māori to English Quiz</div>
        <div className="score">
+               
                 Question {quizState.currentQuestionIndex + 1}/
                 {quizState.questions.length}
             </div>
+            <div className="setup">What does this word mean in english?</div>
             <Question />
             <div className="next-button" onClick={() => dispatch({type: 'NEXT_QUESTION'})}
             >
